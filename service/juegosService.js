@@ -14,13 +14,16 @@ const crearJuegos = async (name, year, company, score)=>{
 
 
 //Editar
-const editarJuegos = async (name, year, company, score)=>{
+const editarJuegos = async (id, data)=>{
     try{
-        const juegoedit = await juegosModel.findByIdAndUpdate(id, {name, year, company, score});
-        return juegoedit;
+        const juegoeditar = await editJuegos.findByIdAndUpdate(id, data);
+        if(juegoeditar){
+            return juegoeditar;
+        }else{
+            return ({error:'No es posible encontrar el juego'});
+        }
     }catch(error){
-        console.error(error);
-        return null;
+       return ({error:'No es posible editar el juego'});
     }
 }
 //Buscar por Score 
