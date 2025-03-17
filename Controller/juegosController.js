@@ -11,9 +11,10 @@ const crearJuegosController = async (req, res) =>{
     }
 }
 
-const ediatrjuegosController = async (req,res)=>{
-    const {name, year, company, score} = req.body;
-    const juegoeditar = await ediatrjuegosController(name, year, company, score);
+const editarJuegosController = async (req,res)=>{
+    const {id} = req.params;
+    const data = req.body;
+    const juegoeditar = await editarJuegos(id, data);
     if(juegoeditar){
         res.json(juegoeditar);
     }else{
