@@ -74,10 +74,14 @@ const buscarTodo = async ()=>{
 //Eliminar 
 const eliminarJuego = async (id)=>{
     try{
-        const juegos = await juegosModel.findByIdAndDelete(id);
+        const juegoEliminar = await juegosModel.findByIdAndDelete(id);
+        if(juegoEliminar){
+            return ({message:"se elimino el juego"})
+        }
     }catch(error){
-
+        console.error(error);
+        return({error:error});
     }
 }
 
-module.exports = {crearJuegos, editarJuegos, buscarScore, buscarNombre, buscarTodo};
+module.exports = {crearJuegos, editarJuegos, buscarScore, buscarNombre, buscarTodo, eliminarJuego};

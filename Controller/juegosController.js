@@ -1,4 +1,4 @@
-const {crearJuegos, editarJuegos, buscarScore, buscarNombre, buscarTodo} = require('../service/juegosService');
+const {crearJuegos, editarJuegos, buscarScore, buscarNombre, buscarTodo, eliminarJuego} = require('../service/juegosService');
 
 
 const crearJuegosController = async (req, res) =>{
@@ -51,4 +51,14 @@ const buscarTodoController = async (req, res)=>{
         res.status(500).json({error:juegos.error});
     }
 }
-module.exports = {crearJuegosController, editarJuegosController, buscarScoreController, buscarNombreController, buscarTodoController};
+
+const eliminarJuegoController = async(req, res)=>{
+    const {id} =  req.params;
+    const juegoEliminar = await eliminarJuego(id);
+    if(juegoEliminar.message){
+        res.json({message:'Juego eliminado'});
+    }else{
+        res.status(500).json({error:juegoEliminar.error});
+    }
+}
+module.exports = {crearJuegosController, editarJuegosController, buscarScoreController, buscarNombreController, buscarTodoController, eliminarJuegoController};

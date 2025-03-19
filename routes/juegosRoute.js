@@ -1,4 +1,4 @@
-const {crearJuegosController, editarJuegosController, buscarScoreController, buscarNombreController, buscarTodoController} = require('../Controller/juegosController');
+const {crearJuegosController, editarJuegosController, buscarScoreController, buscarNombreController, buscarTodoController, eliminarJuegoController} = require('../Controller/juegosController');
 
 const router = require('express').Router();
 
@@ -7,5 +7,6 @@ router.put('/editarGame/:id', editarJuegosController);
 router.get('/buscarScore/:score', buscarScoreController);
 router.get('/buscarNombre/:name', buscarNombreController);
 router.get('/buscarTodo', buscarTodoController);
+router.delete('/eliminarGame/:id', eliminarJuegoController);
 
 module.exports = router;
