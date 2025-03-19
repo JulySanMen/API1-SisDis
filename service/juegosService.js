@@ -30,7 +30,7 @@ const editarJuegos = async (id, data)=>{
 //Buscar por Score 
 const buscarScore = async (score)=>{
     try{
-        const juegoscore = await juegosModel.find({score})
+        const juegoscore = await juegosModel.find({score:score});
         if(juegoscore){
             return juegoscore;
         }else{
@@ -38,10 +38,46 @@ const buscarScore = async (score)=>{
         }
     }catch(error){
         console.error(error);
-        return({error:error});
+        return({error:error.message});
     }
 }
 
 //Buscar por Nombre 
-//
-module.exports = {crearJuegos, editarJuegos, buscarScore};
+const buscarNombre =  async (name)=>{
+    try{
+        const juegoName = await juegosModel.find({name:name});
+        if(juegoName){
+            return juegoName;
+        }else{
+            return({error:'No es posible encontrar el nombre'});
+        }
+    }catch(error){
+        console.error(error);
+        return({error:error});
+    }
+}
+//buscar todo 
+const buscarTodo = async ()=>{
+    try{
+        const juegos = await juegosModel.find();
+        if(juegos){
+            return juegos;
+        }else{
+            return({error:'No es posible encontrar los juegos'});
+        }
+    }catch(error){
+        console.error(error);
+        return({error:error});
+    }
+}
+
+//Eliminar 
+const eliminarJuego = async (id)=>{
+    try{
+        const juegos = await juegosModel.findByIdAndDelete(id);
+    }catch(error){
+
+    }
+}
+
+module.exports = {crearJuegos, editarJuegos, buscarScore, buscarNombre, buscarTodo};
