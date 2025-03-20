@@ -1,9 +1,9 @@
 const {juegosModel} = require('../model/juegosModel');
 
 //Crear Juegos 
-const crearJuegos = async (name, year, company, score)=>{
+const crearJuegos = async (name, year, company)=>{
     try{
-        const newJuego = new juegosModel({name, year, company, score});
+        const newJuego = new juegosModel({name, year, company});
         const saveJuego = await newJuego.save();
         return saveJuego;
     }catch(error){
