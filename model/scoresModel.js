@@ -5,5 +5,5 @@ const scoreSchema = new mongoose. Schema({
     score:{type:Number,requiered:true},
     videogame:{type:String,requiered:true},
 })
-const scoreModel = mongoose.model('score', scoreSchema);
-module.exports = {scoreModel};
+const scoresModel = mongoose.model('score', scoreSchema);
+module.exports = {scoresModel};

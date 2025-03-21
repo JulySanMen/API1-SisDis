@@ -27,20 +27,6 @@ const editarJuegos = async (id, data)=>{
        return ({error:error});
     }
 }
-//Buscar por Score 
-const buscarScore = async (score)=>{
-    try{
-        const juegoscore = await juegosModel.find({score:score});
-        if(juegoscore){
-            return juegoscore;
-        }else{
-            return({error:'No es posible encontrar el Score'});
-        }
-    }catch(error){
-        console.error(error);
-        return({error:error.message});
-    }
-}
 
 //Buscar por Nombre 
 const buscarNombre =  async (name)=>{
@@ -84,4 +70,4 @@ const eliminarJuego = async (id)=>{
     }
 }
 
-module.exports = {crearJuegos, editarJuegos, buscarScore, buscarNombre, buscarTodo, eliminarJuego};
+module.exports = {crearJuegos, editarJuegos, buscarNombre, buscarTodo, eliminarJuego};
