@@ -1,4 +1,5 @@
-const {crearJuegosController, editarJuegosController, buscarNombreController, buscarTodoController, eliminarJuegoController} = require('../Controller/juegosController');
+const {crearJuegosController, editarJuegosController, buscarNombreController, 
+    buscarTodoController, eliminarJuegoController} = require('../Controller/juegosController');
 
 const router = require('express').Router();
 

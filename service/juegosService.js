@@ -12,7 +12,6 @@ const crearJuegos = async (name, year, company)=>{
     }
 }
 
-
 //Editar
 const editarJuegos = async (id, data)=>{
     try{
