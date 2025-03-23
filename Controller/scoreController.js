@@ -62,7 +62,7 @@ const eliminarScoreController = async (req, res)=>{
     const {id} = req.params;
     const scoreEliminar = await eliminarScore(id);
     if(scoreEliminar){
-        res.json({message:"Usuario Eliminadao"});
+        res.json({message:"Score Eliminadao"});
     }else{
         res.status(500).json({error:"No es posible eliminar el usuario"})
     }
