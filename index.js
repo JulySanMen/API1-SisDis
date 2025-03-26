@@ -4,7 +4,6 @@ const juegosRoute = require('./routes/juegosRoute');
 const scoreRoute = require('./routes/scoreRoute');
 const {connecDB} = require('./data/config');
 
-
 const PORT = 3000;
 
 const app = express();
